@@ -1,6 +1,8 @@
 import { Component } from "react";
 import "./App.css";
-import Ciao from "./components/Ciao";
+
+import CiaoList from "./components/CiaoList";
+import CiaoHeader from "./components/CiaoHeader";
 
 class App extends Component {
   constructor(props) {
@@ -74,18 +76,13 @@ class App extends Component {
     this.setState({ users: newUsers, isSortIdUp: !isSortIdUp });
   };
 
-  createList = ({ firstName, lastName, id }) => (
-    <Ciao key={id} id={id} name={firstName} lname={lastName} />
-  );
-
+  
   render() {
     const { users, isSortIdUp, isSortByFirstNameUp, isSortByLastNameUp } =
       this.state;
     return (
       <>
-        <h1 tabIndex={4}>
-          Hi <em>JSX!</em>
-        </h1>
+        <CiaoHeader/>
         <div>
           <button onClick={this.sortUsersById}>
             sort by id {isSortIdUp ? "up" : "down"}
@@ -97,7 +94,7 @@ class App extends Component {
             sort by last name {isSortByLastNameUp ? "up" : "down"}
           </button>
         </div>
-        {users.map(this.createList)}
+        <CiaoList users = {users}/>
       </>
     );
   }
