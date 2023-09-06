@@ -20,7 +20,7 @@ class CardSection extends Component {
     return (
       <>
         <CardSelectList users={users} />
-        <CardList users={users} setSelectUsers={this.setSelectUsers} />;
+        <CardList users={users} setSelectUsers={this.setSelectUsers} />
       </>
     );
   }
