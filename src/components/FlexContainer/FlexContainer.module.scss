@@ -1,0 +1,29 @@
+@use "/src/common/styles/colors" as *;
+@use "/src/common/styles/breackpoints" as *;
+@use "/src/common/styles/templates" as *;
+
+%border {
+  border: {
+    width: 5px;
+    color: $colorMain;
+    style: double;
+    radius: 10px;
+  }
+}
+.FlexContainer {
+  width: 50%;
+  margin: 5px auto;
+  padding: 1rem;
+  background-color: $colorFlex;
+  @extend %border;
+  text-align: center;
+  font-size: 0.9rem;
+  &__h2 {
+    font-size: 1rem;
+    color: #fff;
+  }
+  > ul > li {
+    list-style-type: none;
+    color: $colorFlexText;
+  }
+}
