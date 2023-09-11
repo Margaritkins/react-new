@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ciao from '../Ciao';
+import styles from './CiaoList.module.scss'
 
 class CiaoList extends Component {
   createList = ({ firstName, lastName, id }) => (
@@ -9,7 +10,7 @@ class CiaoList extends Component {
   render() {
     const {users}= this.props;
     return (
-      <section>
+      <section className={styles.container}>
         {users.map(this.createList)}
       </section> 
     );

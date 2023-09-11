@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-
 import CiaoList from "./CiaoList";
 import CiaoHeader from "./CiaoHeader";
 import CiaoSort from "./CiaoSort";
@@ -77,17 +76,19 @@ class CiaoSection extends Component {
   //   this.setState({ users: newUsers, isSortIdUp: !isSortIdUp });
   // };
 
-  
   render() {
     const { users, isSortIdUp, isSortByFirstNameUp, isSortByLastNameUp } =
       this.state;
     return (
       <>
-        <CiaoHeader/>
-        <CiaoSort users = {users}
-        isSortIdUp = {isSortIdUp} isSortByFirstNameUp= {isSortByFirstNameUp} 
-        isSortByLastNameUp ={isSortByLastNameUp}/>
-        <CiaoList users = {users}/>
+        <CiaoHeader />
+        <CiaoSort
+          users={users}
+          isSortIdUp={isSortIdUp}
+          isSortByFirstNameUp={isSortByFirstNameUp}
+          isSortByLastNameUp={isSortByLastNameUp}
+        />
+        <CiaoList users={users} />
       </>
     );
   }

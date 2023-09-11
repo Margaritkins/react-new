@@ -1,0 +1,8 @@
+%flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin borderRadius($radius){
+  border-radius: $radius;
+}
