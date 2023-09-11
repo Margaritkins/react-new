@@ -15,14 +15,21 @@
   margin: 5px auto;
   padding: 1rem;
   background-color: $colorFlex;
+@extend %flex-start;
   @extend %border;
-  text-align: center;
+  text-align: left;
   font-size: 0.9rem;
+  line-height: 1.3em;
+  @media screen and (max-width: $sm) {
+    text-align: center;
+  }
   &__h2 {
+    font-family: sans-serif;
     font-size: 1rem;
     color: #fff;
   }
   > ul > li {
+    font-family: sans-serif;
     list-style-type: none;
     color: $colorFlexText;
   }

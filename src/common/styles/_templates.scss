@@ -1,6 +1,8 @@
-%flex-between{
+%flex-start{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: start;
+  
 }
 
 @mixin borderRadius($radius){

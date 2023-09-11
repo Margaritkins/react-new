@@ -1,7 +1,5 @@
 import React from "react";
 import "./App.css";
-import Note from "./components/Note";
-import { COLORS } from "./constants";
 import FlexContainer from "./components/FlexContainer";
 
 // const List = ({title, children}) => {
