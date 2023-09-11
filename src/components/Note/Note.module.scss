@@ -1,0 +1,28 @@
+@use '/src/common/styles/colors' as *;
+%border{
+  border: {
+    width: 5px;
+    color: $colorMain;
+    style: double;
+    radius: 10px;
+  }
+}
+
+.note{
+  width: 80%;
+margin: 10px auto;
+padding: 1rem;
+  @extend %border;
+  text-align: left;
+  // font-size: 1.5rem;
+  &__h2{
+    color: $colorMain;
+  }
+  >p{
+    font-size: 1em;
+    >em{
+      color: $colorMain;
+      background-color: rgb(119, 133, 133);
+    }
+  }
+}
