@@ -1,5 +1,7 @@
 import React from 'react';
-import styles from './Note.module.scss'
+import PropTypes from 'prop-types'
+import styles from './Note.module.scss';
+import { COLORS } from '../../constants';
 
 const Note = ({children, title, bgColor}) => {
   return (
@@ -8,6 +10,17 @@ const Note = ({children, title, bgColor}) => {
       {children}
     </article>
   );
+}
+
+Note.defaultProps = {
+  title: 'Note',
+  bgColor: COLORS.MAIN,
+}
+
+Note.propTypes = {
+title: PropTypes.string.isRequired,
+bgColor: PropTypes.string.isRequired,
+children: PropTypes.node,
 }
 
 export default Note;
