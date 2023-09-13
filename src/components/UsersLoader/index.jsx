@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getUsers } from "../../api";
 
 class UsersLoader extends Component {
   constructor(props) {
@@ -8,13 +9,14 @@ class UsersLoader extends Component {
       error: null,
       isFetching: false,
       currentPage: 1,
+      currentResults: 3,
     };
   }
 
-  componentDidMount() {
+load=()=>{
+  const {currentPage, currentResults} = this.state
     this.setState({ isFetching: true });
-    fetch("https://randomuser.me/api/?results=5&seed=fm20231&page=1")
-      .then((response) => response.json())
+    getUsers({psge: currentPage,  results: currentResults})
       .then((data) => {
         // console.log(data.results);
         this.setState({ users: data.results });
@@ -26,6 +28,16 @@ class UsersLoader extends Component {
       .finally(() => {
         this.setState({ isFetching: false });
       });
+}
+
+  componentDidMount() {
+    this.load()
+  }
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.currentPage !== this.state.currentPage){
+      this.load()
+    }
+    
   }
 
   prevPage = () => {
