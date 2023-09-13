@@ -21,3 +21,11 @@ MAIN: 'pink',
 PITFALL: 'gold',
 DEPRICATE: 'red'
 }
+
+export const API={
+  URL: 'https://randomuser.me/api/',
+  RESULTS: 10,
+  PAGE:1,
+  KEY:"fm20231",
+  NAT:'gb'
+}

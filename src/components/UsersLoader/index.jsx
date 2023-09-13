@@ -9,7 +9,7 @@ class UsersLoader extends Component {
       error: null,
       isFetching: false,
       currentPage: 1,
-      currentResults: 3,
+      currentResults: 5,
     };
   }
 
