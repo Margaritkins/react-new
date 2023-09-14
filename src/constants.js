@@ -22,6 +22,7 @@ PITFALL: 'gold',
 DEPRICATE: 'red'
 }
 
+
 export const API={
   URL: 'https://randomuser.me/api/',
   RESULTS: 10,
@@ -29,3 +30,13 @@ export const API={
   KEY:"fm20231",
   NAT:'gb'
 }
+
+export const FLEX ={
+  LEVELS: 'row',
+  INFO: 'column',
+  JUSTIFY_LEVELS: 'flex-start',
+  JUSTIFY_INFO: 'center',
+  ALIGN_LEVELS: 'center',
+  ALIGN_INFO: 'flex-end'
+}
+
