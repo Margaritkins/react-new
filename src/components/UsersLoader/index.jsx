@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getUsers } from "../../api";
+import Error from "../Error";
 
 class UsersLoader extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class UsersLoader extends Component {
 load=()=>{
   const {currentPage, currentResults} = this.state
     this.setState({ isFetching: true });
-    getUsers({psge: currentPage,  results: currentResults})
+    getUsers({page: currentPage,  results: currentResults})
       .then((data) => {
         // console.log(data.results);
         this.setState({ users: data.results });
@@ -37,7 +38,7 @@ load=()=>{
     if(prevState.currentPage !== this.state.currentPage){
       this.load()
     }
-    
+
   }
 
   prevPage = () => {
@@ -51,15 +52,12 @@ load=()=>{
   nextPage = () => 
     this.setState((state, props) => ({ currentPage: state.currentPage + 1 })
     );
-  
+
 
   render() {
     const { isFetching, error, users, currentPage } = this.state;
-    if (isFetching) {
-      return <h2>Loading</h2>;
-    }
     if (error) {
-      return <h2>Error:{error.messagee}</h2>;
+      return <Error />
     }
     return (
       <section>
@@ -70,7 +68,8 @@ load=()=>{
           <button onClick={this.nextPage}>next &gt; </button>
         </div>
         <ul>
-          {users.map((user) => (
+          {isFetching && <h2>Loading</h2>}
+          {isFetching || users.map((user) => (
             <li key={user.login.uuid}>{user.email}</li>
           ))}
         </ul>
