@@ -21,3 +21,12 @@ MAIN: 'pink',
 PITFALL: 'gold',
 DEPRICATE: 'red'
 }
+
+export const FLEX ={
+  LEVELS: 'row',
+  INFO: 'column',
+  JUSTIFY_LEVELS: 'flex-start',
+  JUSTIFY_INFO: 'center',
+  ALIGN_LEVELS: 'center',
+  ALIGN_INFO: 'flex-end'
+}
