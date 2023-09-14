@@ -10,34 +10,7 @@ function App() {
   
   return (
     <>
-      <FlexContainer
-        title="Levels"
-        flexDir={FLEX.LEVELS}
-        justCont={FLEX.JUSTIFY_LEVELS}
-        alItems={FLEX.ALIGN_LEVELS}
-      >
-        <ul>
-          <li>A1 Elementary</li>
-          <li>A2 Pre-intermediate</li>
-          <li>B1 Intermediate</li>
-          <li>B1 Upper-intermediate</li>
-          <li>B2 Pre-advanced</li>
-        </ul>
-      </FlexContainer>
-      <FlexContainer
-        title="Info"
-        flexDir={FLEX.INFO}
-        justCont={FLEX.JUSTIFY_INFO}
-        alItems={FLEX.ALIGN_INFO}
-      >
-        <ul>
-          <li>AAbout us</li>
-          <li>Terms of Use</li>
-          <li>Privacy Policy</li>
-          <li>Cookie Policy</li>
-          <li>Cookie Declaration</li>
-        </ul>
-      </FlexContainer>
+      <UsersLoader/>
 
     </>
   );

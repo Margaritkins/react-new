@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getUsers } from "../../api";
 import Error from "../Error";
+import Spinner from "../Spinner";
 
 class UsersLoader extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class UsersLoader extends Component {
     this.setState({ isFetching: true });
     getUsers({ page: currentPage, results: currentResults })
       .then((data) => {
-        // console.log(data.results);
+        if(data.error){
+          throw new Error()
+        }
         this.setState({ users: data.results });
       })
       .catch((err) => {
@@ -77,7 +80,7 @@ class UsersLoader extends Component {
           <button onClick={this.nextPage}>next &gt; </button>
         </div>
         <ul>
-          {isFetching && <h2>Loading</h2>}
+          {isFetching && <h2> <Spinner /> </h2>}
           {isFetching ||
             users.map((user) => <li key={user.login.uuid}>{user.email}</li>)}
         </ul>
