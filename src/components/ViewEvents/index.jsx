@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Error from "../Error";
 import Spinner from "../Spinner";
 
-class LoaderUsers extends Component {
+class ViewEvents extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
+      events: [],
       isFetching: false,
       error: null,
     };
@@ -14,10 +14,10 @@ class LoaderUsers extends Component {
 
   componentDidMount() {
     this.setState({ isFetching: true });
-    fetch("/data/users.json")
+    fetch("/data/events.json")
       .then((responce) => responce.json())
       .then((data) => {
-        this.setState({ users: data });
+        this.setState({ events: data });
       })
       .catch((error) => {
         this.setState({ error });
@@ -28,15 +28,15 @@ class LoaderUsers extends Component {
   }
 
   render() {
-    const { users, isFetching,error}= this.state;
-    if(error){
-      return <Error />
+    const { events, isFetching, error } = this.state;
+    if (error) {
+      return <Error />;
     }
     return <div>
-      {isFetching && <Spinner />}
-      {isFetching || users.map(({id, name})=> <p key ={id} >{name}</p>)}
-    </div>;
+        {isFetching && <Spinner />}
+        {isFetching || events.map(({ id, name }) => <p key={id} >{name}</p>)}
+      </div>
   }
 }
 
-export default LoaderUsers;
+export default ViewEvents;
