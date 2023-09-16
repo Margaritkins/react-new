@@ -1,33 +1,35 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Component } from "react";
+import { UserContext } from "./contexts";
 import "./App.css";
-import NavMenu from "./components/NavMenu";
-import Home from "./pages/Home";
-import UsersPage from "./pages/UsersPage";
-import Page404 from "./pages/Page404";
-import LoaderPage from "./pages/LoaderPage";
+import Tree from "./components/Tree";
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <header>
-          <NavMenu />
-        </header>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {
+        id: 1,
+        firstName: "Brad",
+        lastName: "Pitt",
+        isSelect: false,
+      },
+    };
+  }
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/users" element={<UsersPage />} />
-            <Route path="/loader" element={<LoaderPage />} />
-            <Route path="*" element={<Page404 />} />
-          </Routes>
-        </main>
+  selectorUser = (id) => {
+    this.setState({ user: { ...this.state.user, isSelect: true } });
+  };
 
-        <footer>&copy;2023</footer>
-      </BrowserRouter>
-    </>
-  );
+  render() {
+    const { user } = this.state;
+    console.log(UserContext);
+
+    return (
+      <UserContext.Provider value={{ user, selectorUser: this.selectorUser }}>
+        <Tree />
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;
