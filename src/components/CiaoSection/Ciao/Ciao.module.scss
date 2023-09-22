@@ -11,7 +11,7 @@ $paddingSize: 15px;
 
 
 .container{
-  @extend %flex-between;
+  // @extend %flex-between;
   padding: $paddingSize + 5px;
   background-color: color.$colorMain;
   @media screen and (max-width: $sm) {

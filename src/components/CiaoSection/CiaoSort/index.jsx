@@ -1,62 +1,29 @@
 import React, { Component } from "react";
 
 class CiaoSort extends Component {
-  sortUserByFirstNameUp = () => {
-    const { users, isSortByFirstNameUp } = this.props;
-    const newUsers = JSON.parse(JSON.stringify(users));
-    newUsers.sort((a, b) => {
-      if (a.firstName > b.firstName) {
-        return isSortByFirstNameUp ? -1 : 1;
-      }
-      if (a.firstName < b.firstName) {
-        return isSortByFirstNameUp ? 1 : -1;
-      }
-      return 0;
-    });
-    this.setState({
-      users: newUsers,
-      isSortByFirstNameUp: !isSortByFirstNameUp,
-    });
+  ciaoSortByFNParent = () => {
+    this.props.parentFNSort();
   };
 
-  sortUserByLastNameUp = () => {
-    const { users, isSortByLastNameUp } = this.props;
-    const newUsers = JSON.parse(JSON.stringify(users));
-    newUsers.sort((a, b) => {
-      if (a.lastName > b.lastName) {
-        return isSortByLastNameUp ? -1 : 1;
-      }
-      if (a.lastName < b.lastName) {
-        return isSortByLastNameUp ? 1 : -1;
-      }
-      return 0;
-    });
-    this.setState({ users: newUsers, isSortByLastNameUp: !isSortByLastNameUp });
+  ciaoSortByLNParent = () => {
+    this.props.parentLNSort();
   };
 
-  sortUsersById = () => {
-    const { users, isSortIdUp } = this.props;
-    const newUsers = JSON.parse(JSON.stringify(users));
-    newUsers.sort((a, b) => {
-      if (isSortIdUp) {
-        return a.id - b.id;
-      }
-      return b.id - a.id;
-    });
-    this.setState({ users: newUsers, isSortIdUp: !isSortIdUp });
+  ciaoSortByIdParent = () => {
+    this.props.parentIdSort();
   };
 
   render() {
     const { isSortIdUp, isSortByFirstNameUp, isSortByLastNameUp } = this.props;
     return (
       <div>
-        <button onClick={this.sortUsersById}>
+        <button onClick={this.ciaoSortByIdParent}>
           sort by id {isSortIdUp ? "up" : "down"}
         </button>
-        <button onClick={this.sortUserByFirstNameUp}>
+        <button onClick={this.ciaoSortByFNParent}>
           sort by first name {isSortByFirstNameUp ? "up" : "down"}
         </button>
-        <button onClick={this.sortUserByLastNameUp}>
+        <button onClick={this.ciaoSortByLNParent}>
           sort by last name {isSortByLastNameUp ? "up" : "down"}
         </button>
       </div>

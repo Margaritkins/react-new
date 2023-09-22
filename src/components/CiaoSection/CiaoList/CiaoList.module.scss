@@ -6,7 +6,7 @@
 $sm: 760px;
 
 .container{
-  @extend %flex-between;
+  // @extend %flex-between;
   width: 80%;
   min-width: 550px;
   max-width: 1100px;
