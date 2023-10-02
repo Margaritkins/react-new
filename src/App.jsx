@@ -13,15 +13,18 @@ class App extends Component {
         lastName: "Pitt",
         imgSrc:
           "https://i.pinimg.com/originals/af/0a/62/af0a621b0d7edbc5ab835144dc0fa4df.gif",
+          isSelect:false
       },
     };
   }
+
+  selectorUser=(id)=>{this.setState({user:{...this.state.user, isSelect:!this.state.user.isSelect}})}
 
   render() {
     const { user } = this.state;
     return (
       <>
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user, selectorUser: this.selectorUser}}>
           <Tree user={user} />
         </UserContext.Provider>
       </>

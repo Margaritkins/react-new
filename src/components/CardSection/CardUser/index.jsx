@@ -2,36 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { UserContext } from "../../../contexts";
 
-const CardUser = (props) => {
-  const {
+const CardUser = () => {
+  
+  const renderFunc = ({
     user: { id, firstName, lastName, imgSrc, isSelect },
     selectorUser,
-  } = props;
-  const selectHandler = () => {
-    selectorUser(id);
+  }) => {
+    const selectHandler = () => {
+      selectorUser(id);
+    };
+    const styles = { backgroundColor: isSelect ? "pink" : "gray" };
+    const imgStyles = { with: "70px", height: "70px", borderRadius: "50%" };
+
+    return (
+      <article onClick={selectHandler} style={styles}>
+        <h3>
+          {firstName} {lastName}
+          <img src={imgSrc} style={imgStyles} />
+        </h3>
+      </article>
+    );
   };
-  const styles = { backgroundColor: isSelect ? "pink" : "gray" };
-  const imgStyles = { with: "70px", height: "70px", borderRadius: "50%" };
 
-
-  return (
-    <UserContext.Consumer>
-      {({firstName,lastName,imgSrc})=> {
-        return(
-          <article onClick={selectHandler} style={styles}>
-      <h3>
-        {firstName} {lastName}
-        <img src={imgSrc} style={imgStyles} />
-      </h3>
-    </article>
-        )}
-      }
-      
-    </UserContext.Consumer>
-    
-  );
-
-  // return <UserContext.Consumer>{renderFunc}</UserContext.Consumer>;
+  return <UserContext.Consumer>{renderFunc}</UserContext.Consumer>;
 };
 
 export const userShape = PropTypes.shape({
