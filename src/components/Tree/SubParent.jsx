@@ -6,7 +6,7 @@ const SubParent = (props) => {
   return (
     <div>
       SubParent
-      <Child user={user} />
+      <Child  />
     </div>
   );
 };

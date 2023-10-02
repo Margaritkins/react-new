@@ -6,7 +6,7 @@ const Child = (props) => {
   return (
     <div>
       Child
-      <CardUser user={user} />
+      <CardUser  />
     </div>
   );
 };

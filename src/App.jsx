@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { UserContext } from "./contexts";
 import "./App.css";
 import Tree from "./components/Tree";
 
@@ -18,7 +19,13 @@ class App extends Component {
 
   render() {
     const { user } = this.state;
-    return <Tree user={user} />;
+    return (
+      <>
+        <UserContext.Provider value={user}>
+          <Tree user={user} />
+        </UserContext.Provider>
+      </>
+    );
   }
 }
 

@@ -6,7 +6,7 @@ const Tree = (props) => {
   return (
     <div>
       Tree
-      <Parent user={user} />
+      <Parent  />
     </div>
   );
 };

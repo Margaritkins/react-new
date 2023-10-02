@@ -13,13 +13,22 @@ const CardUser = (props) => {
   const styles = { backgroundColor: isSelect ? "pink" : "gray" };
   const imgStyles = { with: "70px", height: "70px", borderRadius: "50%" };
 
+
   return (
-    <article onClick={selectHandler} style={styles}>
+    <UserContext.Consumer>
+      {({firstName,lastName,imgSrc})=> {
+        return(
+          <article onClick={selectHandler} style={styles}>
       <h3>
         {firstName} {lastName}
         <img src={imgSrc} style={imgStyles} />
       </h3>
     </article>
+        )}
+      }
+      
+    </UserContext.Consumer>
+    
   );
 
   // return <UserContext.Consumer>{renderFunc}</UserContext.Consumer>;
