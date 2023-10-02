@@ -1,19 +1,24 @@
 import React from "react";
-// import LoaderUsers from '../../components/LoaderUsers';
-import LoaderData from "../../components/LoaderData";
-import { getEventsJSON, getProductsJSON, getUsersJSON } from "../../api";
+import { NavLink, Outlet } from "react-router-dom";
+// import { getEventsJSON, getProductsJSON, getUsersJSON } from "../../api";
 
 const LoaderPage = () => {
   return (
-    <div>
-      {/* <LoaderUsers /> */}
-      <h2>Users</h2>
-      <LoaderData loadData={getUsersJSON} render />
-      <h2>Events</h2>
-      <LoaderData loadData={getEventsJSON} render/>
-      <h2>Products</h2>
-      <LoaderData loadData={getProductsJSON} render/>
-    </div>
+    <>
+    <ul>
+      <li>
+        <NavLink to="loader/users">users</NavLink>
+      </li>
+      <li>
+        <NavLink to="loader/events">events</NavLink>
+      </li>
+      <li>
+        <NavLink to="loader/products">products</NavLink>
+      </li>
+    </ul>
+    <Outlet/>
+    </>
+    
   );
 };
 
